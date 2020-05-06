@@ -1,11 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Worksheet>
-<Version major="17" minor="0"/>
-<Label-Scheme value="2" prefix=""/>
-<View-Properties presentation="false" autoexpanding_sections="true">
-</View-Properties>
-<MapleNet-Properties elisiondigitsbefore="100" labelling="true" indentamount="4" elisiontermsthreshold="10000" ansi="false" errorbreak="1" useclientjvm="true" echo="1" imaginaryunit="I" labelwidth="20" contextmenusize="automatic" plotdriver="opengl" elisiondigitsafter="100" plotoutput="terminal" helpbrowser="standard" rtablesize="10" elisiontermsbefore="100" elisiondigitsthreshold="10000" typesetting="standard" plotdevice="inline" verboseproc="1" showassumed="1" errorcursor="false" longdelim="true" plotoptions="" quiet="false" elisiontermsafter="100" screenwidth="79" preplot="" prettyprint="3" displayprecision="-1" screenpixelheight="1080" warnlevel="3" screenheight="25" latexwidth="8.0" postplot="" prompt="&gt; " ShowLabels="true"/>
-<Styles>
+
+Algorithm 1 Normalize
 
 #################################################################################################################
 Input: a perturbed differential system with a averaging order k
@@ -32,8 +26,10 @@ F[i, 2] := prem(denom(f[i]), C^2+S^2-1, C);
 F[i] := normal(F[i, 1]/F[i, 2]); 
 end do; end if; 
 return subs(C = cos(theta), S = sin(theta), sum(F[j]*epsilon^j, j = 1 .. k));
-end proc:" 
+end proc:
 
+
+Algorithm 2 Averformula
     
 #################################################################################################################
 Input: a normal form of averaging up to order k
@@ -53,8 +49,10 @@ U := U+(Diff(F[k-l](s, z), `$`(z, m)))*IncompleteBellB(l, m, seq(y[i](s, z), i =
 V := V+(Diff(F[k-l], `$`(z, m)))*IncompleteBellB(l, m, seq(y[i], i = 1 .. l-m+1))/factorial(l);
 end do; end do; 
 return {Int(factorial(k)*(F[k](s, z)+U), s = 0 .. theta), [Int(factorial(k)*(F[k]+V), theta = 0 .. theta), Int(F[k]+V, theta = 0 .. 2*Pi)]}; 
-end proc:" 
+end proc:
 
+
+Algorithm 3 AverFun
 
 #################################################################################################################
 Input: a normal form of averaging up to order k
@@ -87,6 +85,11 @@ y[h] := value(op(1, op(2, A[h])));
 f[h] := factor(value(op(2, op(2, A[h])))); 
 end do; 
 return f[k] 
-end proc:" 
+end proc:
+
+
+
+
+
 
 
